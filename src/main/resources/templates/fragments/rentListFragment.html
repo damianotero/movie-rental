@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="rentListFragment">
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Movie ID</th>
+                <th scope="col">Rent days</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:if="${rentList.empty}">
+                <td colspan="2"> No Rents Available</td>
+            </tr>
+                    
+            <tr th:each="rent : ${rentList}">
+                <td><span th:text="${rent.id}"> Title </span></td>
+                <td><span th:text="${rent.date}"> Author </span></td>
+                <td><span th:text="${rent.customer_id}"> Author </span></td>
+                <td><span th:text="${rent.movie_id}"> Author </span></td>
+                <td><span th:text="${rent.rentDays}"> Author </span></td>
+                <td><span th:text="${rent.price}"> Author </span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</html>

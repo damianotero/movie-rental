@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Change Movie Price</title>
+        
+    <div th:insert="fragments/head.html :: head"></div>
+
+</head>
+<body>
+  
+<div th:insert="fragments/mainMenu.html :: menu"></div>
+<div th:insert="fragments/movieMenu.html :: movieMenu"></div>
+<div th:insert="fragments/movieListFragment.html :: movieListFragment"></div>
+
+
+<div class="container">
+    <form th:action="@{/movie/changePrice}" th:object="${movie}" method="post">
+        <div class="form-group">
+            <label>Movie ID:</label>
+            <input type="number" th:field="*{id}" class="form-control" placeholder="Enter the ID of the movie to update">
+        </div>
+        <div class="form-group">
+            <label>New Price:</label>
+            <input type="number" step=".01" th:field="*{price}" class="form-control" placeholder="Enter the new price">
+        </div>
+
+        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+</body>
+</html>

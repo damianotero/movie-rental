@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="customerListFragment">
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:if="${customerList.empty}">
+                <td colspan="2"> No Customers Available</td>
+            </tr>
+                    
+            <tr th:each="customer : ${customerList}">
+                <td><span th:text="${customer.id}"> Id </span></td>
+                <td><span th:text="${customer.name}"> Name </span></td>
+                <td><span th:text="${customer.address}"> Address </span></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</html>

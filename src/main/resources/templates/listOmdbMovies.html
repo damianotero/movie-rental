@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Omdb MOvies</title>
+        
+    <div th:insert="fragments/head.html :: head"></div>
+
+</head>
+<body>
+    
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Year</th>
+            <th scope="col">Imdb ID</th>
+            <th scope="col">type</th>
+            <th scope="col">poster</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:if="${omdbMovieList.empty}">
+            <td colspan="2"> No Movies Available</td>
+        </tr>
+                
+        <tr th:each="omdbMovie : ${omdbMovieList}">
+            <td><span th:text="${omdbMovie.title}"> Title </span></td>
+            <td><span th:text="${omdbMovie.year}"> Author </span></td>
+            <td><span th:text="${omdbMovie.imdbID}"> Author </span></td>
+            <td><span th:text="${omdbMovie.type}"> Author </span></td>
+            <td><img  th:src="@{${omdbMovie.poster}}" height="200">  </img></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

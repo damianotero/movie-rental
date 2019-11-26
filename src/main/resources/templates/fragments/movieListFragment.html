@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="movieListFragment">
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Main Actor</th>
+                <th scope="col">Year</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Price</th>
+                <th scope="col">Poster</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:if="${movieList.empty}">
+                <td colspan="2"> No Movies Available</td>
+            </tr>
+                    
+            <tr th:each="movie : ${movieList}">
+                <td><span th:text="${movie.id}"> Title </span></td>
+                <td><span th:text="${movie.title}"> Author </span></td>
+                <td><span th:text="${movie.mainActor}"> Author </span></td>
+                <td><span th:text="${movie.year}"> Author </span></td>
+                <td><span th:text="${movie.genre}"> Author </span></td>
+                <td><span th:text="${movie.price}"> Author </span></td>
+                <td><img  th:src="@{${movie.poster}}" height="80"></img> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>
